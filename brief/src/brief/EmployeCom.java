@@ -1,17 +1,13 @@
 package brief;
 
-public class EmployeCom {
-
-}
-package brif;
 
 import java.util.Scanner;
 
 public class EmployeCom extends Employe{
-private int vente=25;
-private int commi=1/2;
-private double salairenet=1000;
-private double salaireFixe=4000;
+private int vente;
+private double commi;
+private double salaire;
+private double salaireFixe;
 
 Scanner clavier=new Scanner(System.in);
 
@@ -21,25 +17,29 @@ public EmployeCom() {
 
 
 
-public EmployeCom(String nom, String prenom, String date, int vente, int commi, double salairenet,double salaireFixe) {
+public EmployeCom(String nom, String prenom, String date, int vente, double commi, double salaire) {
 	super(nom, prenom, date);
 	this.vente = vente;
 	this.commi = commi;
-	this.salairenet = salairenet;
+	this.salaire = salaire;
+	
 }
 
 
 
 
 
-public double getSalaireFixe() {
-	return salaireFixe;
-}
 
 
 
-public void setSalaireFixe(double salaireFixe) {
-	this.salaireFixe = salaireFixe;
+
+
+
+
+
+public EmployeCom(String nom, String prenom, String date) {
+	// TODO Auto-generated constructor stub
+	super(nom, prenom, date);
 }
 
 
@@ -56,46 +56,45 @@ public void setVente(int vente) {
 
 
 
-public int getCommi() {
+public double getCommi() {
 	return commi;
 }
 
 
 
-public void setCommi(int commi) {
+public void setCommi(double commi) {
 	this.commi = commi;
 }
 
 
 
-public double getSalairenet() {
-	return salairenet;
+public double getsalaire() {
+	return salaire;
 }
 
-
-
-public void setSalairenet(double salairenet) {
-	this.salairenet = salairenet;
+public void  setsalaire(double salaire) {
+	this.salaire=salaire;
 }
+
 
 
 
 @Override
-public void calcul_salaire() {
-	  Scanner sc = new Scanner(System.in);
-	   
-	        salairenet = salaireFixe + (vente * commi);
-	        System.out.println(" votre salaire est "+salairenet);
-	    }
-
+public double calcul_salaire() {
+	return salaire=salaireFixe+(vente*commi);
+	
+}
 
 
 @Override
 public String toString() {
-	return "EmployeCom [vente=" + vente + ", commi=" + commi + ", salairenet=" + salairenet + ", salaireFixe="
-			+ salaireFixe + "]";
+	return String.format("EmployeCom vente= " + this.vente + ", commi=" + this.commi + ", salaire=" + this.calcul_salaire() + ", nom=" + this.nom + ", prenom="
+			+ this.prenom + ", date=" + this.date); 
 }
-	}
+
+
+
+	} 
 
 
 
